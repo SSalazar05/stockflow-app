@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>StockFlow - Inventario y Despachos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlow 📦</h1>
+
+        <!-- Formulario para Registrar Producto -->
+        <div class="section-card">
+            <h3>Registrar Nuevo Producto</h3>
+            <form id="product-form">
+                <input type="text" id="prod-name" placeholder="Nombre del producto..." required>
+                <input type="number" id="prod-stock" placeholder="Stock inicial" min="0" required>
+                <input type="number" id="prod-price" placeholder="Precio ($)" step="0.01" min="0" required>
+                <button type="submit">Guardar Producto</button>
+            </form>
+        </div>
+
+        <!-- Inventario Actual -->
+        <div class="section-card">
+            <h3>Inventario Actual</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Stock</th>
+                        <th>Precio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- Dinámico -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Historial de Despachos con Filtro y Limpieza -->
+        <div class="section-card">
+            <div class="header-flex">
+                <h3>Historial de Despachos</h3>
+                <div class="dispatch-actions">
+                    <input type="text" id="search-dispatch" placeholder="Filtrar..." class="search-input">
+                    <select id="clean-period" class="clean-select">
+                        <option value="" disabled selected>Limpiar historial...</option>
+                        <option value="1week">Más de 1 semana</option>
+                        <option value="3months">Más de 3 meses</option>
+                        <option value="6months">Más de 6 meses</option>
+                    </select>
+                    <button id="clean-btn" class="clean-btn-action">Eliminar</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Destino</th>
+                        <th>Fecha / Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="dispatch-list">
+                    <!-- Dinámico -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
